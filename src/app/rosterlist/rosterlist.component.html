@@ -1,0 +1,20 @@
+<div class="album roster bg-light">
+    <div class="container">
+        <div class="row row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+            <div class="col" *ngFor="let player of players">
+                <div class="card shadow-sm">
+                    <img src="{{player.picture}}">
+                    <span class="number">{{player.number}}</span>
+                    <div class="card-body">
+                        <p><strong>{{player.firstName}} {{player.lastName}}</strong></p>
+                        <p class="card-text text-muted">B/T: {{player.batSide}}/{{player.throwSide}}</p>
+                        <p class="card-text text-muted">Primary Position: {{player.primaryPosition}}</p>
+                        <div>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>                     
+        </div>
+    </div>
+</div>

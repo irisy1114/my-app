@@ -1,0 +1,66 @@
+header {
+    background-color: #13294b;
+}
+
+.header_logo {
+    min-height: 40px;
+    max-height: 40px;
+}
+
+.card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.2s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+    /*transition: box-shadow .3s;*/
+}
+
+.card:hover {
+    /*transition: box-shadow .3s;*/
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgb(74, 127, 220);
+    /*box-shadow: 0 0 11px rgba(33,33,33,.2);*/
+}
+.roster {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.number {
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    color: #13294b;
+    font-weight: bold;
+}
+
+.btn-sm {
+    float: right;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+.p-logo {
+    width: 75px;
+    max-width: 75px;
+    max-height: 38px;
+    height: 38px;
+}
+.lead {
+    font-size: 20px;
+}
+
+ul.nav {
+    padding-right: 30px;
+}
+
+.footer {
+    padding-left: 30px;
+}
+
+footer {
+    background-color: #13294b;
+    color: white;
+}
