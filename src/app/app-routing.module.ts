@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RosterlistComponent } from './rosterlist/rosterlist.component';
+import { RosterListComponent } from './rosterlist/rosterlist.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: '', component: RosterlistComponent },
+      { path: '', component: RosterListComponent },
       { path: '**', redirectTo: '/', pathMatch: 'full' }
     ]
   }

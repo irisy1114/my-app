@@ -4,21 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RosterlistComponent } from './rosterlist/rosterlist.component';
+import { RosterListComponent } from './rosterlist/rosterlist.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CacheService } from './utilities/cacheservices';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RosterlistComponent
+    RosterListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [
-    DataService
+    DataService, CacheService
   ],
   bootstrap: [AppComponent]
 })

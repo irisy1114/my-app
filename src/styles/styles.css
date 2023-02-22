@@ -13,14 +13,46 @@ header {
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.2s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     cursor: pointer;
-    /*transition: box-shadow .3s;*/
+    transition: box-shadow .3s;
+} 
+.col-sm-6 {
+    padding-top: 10px;
 }
 
 .card:hover {
-    /*transition: box-shadow .3s;*/
-    transform: scale(1.05);
-    box-shadow: 10px 10px 20px rgb(74, 127, 220);
-    /*box-shadow: 0 0 11px rgba(33,33,33,.2);*/
+    /* transition: box-shadow .3s; */
+    /* transform: scale(1.05); */
+    box-shadow: 10px 5px 5px #13294b !important;
+    /* box-shadow: 0 0 11px rgba(33,33,33,.2); */
+}
+.card:hover .card-body {
+    color: white;
+    background-color: #5e6e88;
+    border-radius: 4px;
+}
+
+
+.card:hover .btn-sm {
+    color: #13294b;
+    background-color: white;
+    border: #13294b;
+}
+
+.modal-header {
+    background-color: #ffc72c;
+}
+
+h1.modal-title {
+    
+    color: #13294b;
+    font-weight: bold;
+}
+
+img {
+    width: 100%;
+}
+.col-sm-7 {
+    color:#13294b;
 }
 .roster {
     padding-top: 6rem;

@@ -1,20 +1,88 @@
-<div class="album roster bg-light">
+<div class="album album-header roster bg-light">
     <div class="container">
-        <div class="row row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+        <div class="row justify-content-between align-items-center py-3">
+            <div class="col-sm-auto col-lg-6 py-">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark" placeholder="Search by player name..."
+                        aria-label="Search" (keyup)="searchByName($event)" (search)="searchByName($event)">
+                </form>
+            </div>
+
+            <div class="col-sm-auto col-lg-6 py-1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Primary position
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <Li><button class="dropdown-item" type="button" (click)="filterByPosition('All')">All</button>
+                    </Li>
+                    <li *ngFor="let p of primaryPositions">
+                        <button class="dropdown-item" type="button" (click)="filterByPosition(p)">{{p}}</button>
+                    </li>
+                </ul>
+                <span>&nbsp;<b>{{selectedPosition}}</b></span>
+            </div>                
+        </div>
+        
+
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3"
+            *ngIf="players && players.length > 0 else notfound">
             <div class="col" *ngFor="let player of players">
                 <div class="card shadow-sm">
-                    <img src="{{player.picture}}">
+                    <img src="{{player.picture}}" (click)="openModal(player)">
                     <span class="number">{{player.number}}</span>
                     <div class="card-body">
-                        <p><strong>{{player.firstName}} {{player.lastName}}</strong></p>
-                        <p class="card-text text-muted">B/T: {{player.batSide}}/{{player.throwSide}}</p>
-                        <p class="card-text text-muted">Primary Position: {{player.primaryPosition}}</p>
+                        <h6 class="card-title">{{player.firstName}} {{player.lastName}}</h6>
+                        <p class="card-text">B/T: {{player.batSide}}/{{player.throwSide}}</p>
+                        <p class="card-text">Primary Position: {{player.primaryPosition}}</p>
                         <div>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary"
+                                (click)="openModal(player)">View</button>
                         </div>
                     </div>
                 </div>
-            </div>                     
+            </div>
+        </div>
+        <ng-template #notfound>
+            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2">
+                <span>No player was found</span>
+            </div>
+        </ng-template>
+
+        <!-- Modal -->
+        <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
+            <div *ngIf="selectedPlayer" class="modal fade" id="detailModel" tabindex="-1"
+                aria-labelledby="playersDetails" aria-hidden="true">
+                <div class="modal-dialog scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="playersDetails">{{selectedPlayer.firstName}}
+                                {{selectedPlayer.lastName}} #{{selectedPlayer.number}}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-5 align-items-start">
+                                    <img src="{{selectedPlayer.picture}}">
+                                </div>
+                                <div class="col-sm-7 align-items-end">
+                                    <span><strong>Primary Postition:</strong>
+                                        {{selectedPlayer.primaryPosition}}</span><br>
+                                    <span><strong>Bat Side:</strong> {{selectedPlayer.batSide}}</span><br>
+                                    <span><strong>Throw Side:</strong> {{selectedPlayer.throwSide}}</span><br>
+                                    <span><strong>Birth City:</strong> {{selectedPlayer.birthCity}}</span><br>
+                                    <span><strong>Birth State Province:</strong>
+                                        {{selectedPlayer.birthStateProvince}}</span><br>
+                                    <span><strong>Birth Country:</strong> {{selectedPlayer.birthCountry}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
