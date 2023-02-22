@@ -28,12 +28,8 @@ export class DataService {
         }))
     }
 
-    // getPlayers(): Observable<Player[]> {
-    //     return this.httpClient.get<Player[]>('assets/data/data.json');
-    // }
-    
-     //get a single player
+    //get a single player
     async getPlayer(playerId: number): Promise<Player | undefined> {
-    return await lastValueFrom(this.loadPlayers()).then(players => players.find(x => x.id == playerId));
-  }
+        return await lastValueFrom(this.loadPlayers()).then(players => players.find(x => x.id == playerId));
+    }
 }

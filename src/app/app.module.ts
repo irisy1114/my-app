@@ -17,7 +17,7 @@ import { CacheService } from './utilities/cacheservices';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    
+
   ],
   providers: [
     DataService, CacheService
